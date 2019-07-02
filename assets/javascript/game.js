@@ -26,6 +26,7 @@ $("losses").text(losses);
 // Diplays the players current total score
 var currentTotal = 0;
 
+
 var greenRup = $("<img>");
 
 // add classes to the rupee images so that css can take effect
@@ -54,7 +55,7 @@ $(".rupee-image").on("click", function(){
 
     if (currentScore === targetNumber){
         alert("Congratulations! You're a Winner!");
-        wins ==;
+        wins ++;
     }
 
     else if (currentScore >= targetNumber) {
