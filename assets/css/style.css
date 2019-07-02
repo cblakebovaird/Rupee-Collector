@@ -1,0 +1,19 @@
+body {
+    background-image: url("assets/css/images/skywardsword.jpeg");
+    background-size: cover;
+}
+
+#instructions {
+    background-color:darkgray;
+    color:black;
+    width: 45%;
+}
+
+h1 {
+    background-color: black;
+    color: blue;
+}
+
+#scoreboard {
+    background-color: darkgray;
+}
