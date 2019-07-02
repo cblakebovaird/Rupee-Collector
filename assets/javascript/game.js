@@ -2,7 +2,12 @@
 // Creating the variable that gives the random number that the user is trying to achieve
 var targetNumber = [Math.floor(Math.random() * 120)];
 
-$("#current-score").text(targetNumber);
+$("#target-score").text(targetNumber);
+
+// Creating a variable that displays the users current score
+var currentScore = 0;
+
+$("#current-score").text(currentScore);
 
 
 // Creating variables that set the value of the crystals
@@ -29,17 +34,33 @@ redRup.addClass("rupee-image");
 blueRup.addClass("rupee-image");
 purpRup.addClass("rupee-image");
 
-// adding src links for the images
+// adding src links for the images and displaying them
 greenRup.attr("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKzLGidcb40vKsH-Omfy3Ayrdh2WZOiBB3h6OD4Y146r7trgcw");
 
 greenRup.attr("data-rupeeValue", greenVal);
 
-$("#crystals").append(greenRup);
+$("#rupees").append(greenRup);
 
 
 
 // Creating click event
 $(".rupee-image").on("click", function(){
+
+    var rupeeValue = ($(this).attr("data-rupeeValue"));
+    rupeeValue = parseInt(rupeeValue);
+
+// every time a rupee is clicked, the value is added to the current score
+    currentScore += rupeeValue;
+
+    if (currentScore === targetNumber){
+        alert("Congratulations! You're a Winner!");
+        wins ==;
+    }
+
+    else if (currentScore >= targetNumber) {
+        alert("You lose! Try again!");
+        losses ++;
+    }
 
 });
 
