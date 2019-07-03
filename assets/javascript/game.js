@@ -1,75 +1,107 @@
 
 // Creating the variable that gives the random number that the user is trying to achieve
-var targetNumber = [Math.floor(Math.random() * 120)];
-
-// displaying the target number to the target-score div
-$("#target-score").text(targetNumber);
+var targetNumber = [Math.floor(Math.random() * 101)+19];
 
 // Creating a variable that displays the users current score
 var currentScore = 0;
 
-// displaying the current score
-$("#current-score").text(currentScore);
-
-
 // Creating variables that set the value of the crystals
-var greenVal = [Math.floor(Math.random() * 12)];
-var redVal = [Math.floor(Math.random() * 12)];
-var blueVal = [Math.floor(Math.random() * 12)];
-var purpVal = [Math.floor(Math.random() * 12)];
+var greenVal = Math.floor(Math.random() * 11)+1;
+var redVal = Math.floor(Math.random() * 11)+1;
+var blueVal = Math.floor(Math.random() * 11)+1;
+var purpleVal = Math.floor(Math.random() * 11)+1;
 
 // Create variables to display wins and losses
 var wins = 0;
-$("wins").text(wins);
 var losses = 0;
-$("losses").text(losses);
-
 
 // Diplays the players current total score
 var currentTotal = 0;
 
+// creating a reset function
+function reset(){
+var targetNumber = [Math.floor(Math.random() * 101)+19];    
+var greenVal = [Math.floor(Math.random() * 11)+1];
+var redVal = [Math.floor(Math.random() * 11)+1];
+var blueVal = [Math.floor(Math.random() * 11)+1];
+var purpVal = [Math.floor(Math.random() * 11)+1];
+$("#target-score").text(targetNumber);
+$("#current-score").text(currentScore);
+;}
 
-// var green = $("<img>");
+$(document).ready(function () {
 
-// // add classes to the rupee images so that css can take effect
-// greenRup.addClass("rupee-image");
-// redRup.addClass("rupee-image");
-// blueRup.addClass("rupee-image");
-// purpRup.addClass("rupee-image");
-
-// // adding src links for the images and displaying them
-// greenRup.attr("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKzLGidcb40vKsH-Omfy3Ayrdh2WZOiBB3h6OD4Y146r7trgcw");
-
-// giving an attribute called 'data-rupeeValue' that sets it equal to the random number that the 'greenVal' variable creates
-$("#green").attr("data-rupeeValue", greenVal);
-
-
-// $(".rupees").append(greenRup);
-
-
+// displaying scores
+$("#target-score").text(targetNumber);
+$("#current-score").text(currentScore);
 
 // Creating click event
-$(".rupees").on("click", function(){
-
-// using 'this' to get the value of the clicked rupee 
-    var rupeeValue = ($(this).attr("data-rupeeValue"));
+$("#green").on("click", function(){
+console.log("currentScore" + typeof currentScore);
+console.log("green val" + typeof greenVal);
+    currentScore += greenVal;
+    var rupeeValue = ($(this).attr("data-rupeevalue"));
     rupeeValue = parseInt(rupeeValue);
+    console.log(currentScore);
+    $("#current-score").text(currentScore);
 
-// every time a rupee is clicked, the value is added to the current score
-    currentScore += rupeeValue;
+ });   
+ $("#red").on("click", function(){
 
-    if (currentScore === targetNumber){
+    currentScore += redVal;
+    var rupeeValue = ($(this).attr("data-rupeevalue"));
+    rupeeValue = parseInt(rupeeValue);
+    console.log(currentScore);
+    $("#current-score").text(currentScore);
+
+ });   
+
+ $("#blue").on("click", function(){
+
+    currentScore += blueVal;
+    var rupeeValue = ($(this).attr("data-rupeevalue"));
+    rupeeValue = parseInt(rupeeValue);
+    console.log(currentScore);
+    $("#current-score").text(currentScore);
+
+ });   
+
+ $("#purple").on("click", function(){
+
+    currentScore += purpleVal;
+    var rupeeValue = ($(this).attr("data-rupeevalue"));
+    rupeeValue = parseInt(rupeeValue);
+    console.log(currentScore);
+    $("#current-score").text(currentScore);
+
+ });   
+
+ $(".rupees").on("click", function(){
+
+if (currentScore === targetNumber){
         alert("Congratulations! You're a Winner!");
         wins ++;
+        $("wins").text(wins= 1+ wins + "Wins:");
+        wins = parseInt(wins);
     }
 
-    else if (currentScore >= targetNumber) {
+    else if (currentScore > targetNumber) {
         alert("You lose! Try again!");
         losses ++;
+        $("losses").text(losses= 1+ losses + "Losses:");
+        losses = parseInt(losses);
+
     }
 
+
+
+ });
+
+    
+    // reset();
+
+
+
+
 });
-
-
-
 
