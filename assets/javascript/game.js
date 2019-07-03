@@ -2,11 +2,13 @@
 // Creating the variable that gives the random number that the user is trying to achieve
 var targetNumber = [Math.floor(Math.random() * 120)];
 
+// displaying the target number to the target-score div
 $("#target-score").text(targetNumber);
 
 // Creating a variable that displays the users current score
 var currentScore = 0;
 
+// displaying the current score
 $("#current-score").text(currentScore);
 
 
@@ -27,26 +29,29 @@ $("losses").text(losses);
 var currentTotal = 0;
 
 
-var greenRup = $("<img>");
+// var green = $("<img>");
 
-// add classes to the rupee images so that css can take effect
-greenRup.addClass("rupee-image");
-redRup.addClass("rupee-image");
-blueRup.addClass("rupee-image");
-purpRup.addClass("rupee-image");
+// // add classes to the rupee images so that css can take effect
+// greenRup.addClass("rupee-image");
+// redRup.addClass("rupee-image");
+// blueRup.addClass("rupee-image");
+// purpRup.addClass("rupee-image");
 
-// adding src links for the images and displaying them
-greenRup.attr("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKzLGidcb40vKsH-Omfy3Ayrdh2WZOiBB3h6OD4Y146r7trgcw");
+// // adding src links for the images and displaying them
+// greenRup.attr("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKzLGidcb40vKsH-Omfy3Ayrdh2WZOiBB3h6OD4Y146r7trgcw");
 
-greenRup.attr("data-rupeeValue", greenVal);
+// giving an attribute called 'data-rupeeValue' that sets it equal to the random number that the 'greenVal' variable creates
+$("#green").attr("data-rupeeValue", greenVal);
 
-$("#rupees").append(greenRup);
+
+// $(".rupees").append(greenRup);
 
 
 
 // Creating click event
-$(".rupee-image").on("click", function(){
+$(".rupees").on("click", function(){
 
+// using 'this' to get the value of the clicked rupee 
     var rupeeValue = ($(this).attr("data-rupeeValue"));
     rupeeValue = parseInt(rupeeValue);
 
