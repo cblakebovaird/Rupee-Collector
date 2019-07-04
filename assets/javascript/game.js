@@ -20,13 +20,18 @@ var currentTotal = 0;
 
 // creating a reset function
 function reset(){
-var targetNumber = [Math.floor(Math.random() * 101)+19];    
-var greenVal = [Math.floor(Math.random() * 11)+1];
-var redVal = [Math.floor(Math.random() * 11)+1];
-var blueVal = [Math.floor(Math.random() * 11)+1];
-var purpVal = [Math.floor(Math.random() * 11)+1];
+targetNumber = Math.floor(Math.random() * 101)+19;    
+greenVal = Math.floor(Math.random() * 11)+1;
+redVal = Math.floor(Math.random() * 11)+1;
+blueVal = Math.floor(Math.random() * 11)+1;
+purpVal = Math.floor(Math.random() * 11)+1;
+currentScore = 0;
 $("#target-score").text(targetNumber);
 $("#current-score").text(currentScore);
+$("#losses").text("Losses: " + losses);
+$("#wins").text("Wins: " + wins);
+
+
 ;}
 
 $(document).ready(function () {
@@ -35,7 +40,7 @@ $(document).ready(function () {
 $("#target-score").text(targetNumber);
 $("#current-score").text(currentScore);
 
-// Creating click event
+// Creating click events
 $("#green").on("click", function(){
 console.log("currentScore" + typeof currentScore);
 console.log("green val" + typeof greenVal);
@@ -76,20 +81,24 @@ console.log("green val" + typeof greenVal);
 
  });   
 
+
+
  $(".rupees").on("click", function(){
 
-if (currentScore === targetNumber){
+if (currentScore == targetNumber){
         alert("Congratulations! You're a Winner!");
         wins ++;
-        $("wins").text(wins= 1+ wins + "Wins:");
+        $("#wins").text(wins);
         wins = parseInt(wins);
+        reset();
     }
 
     else if (currentScore > targetNumber) {
         alert("You lose! Try again!");
         losses ++;
-        $("losses").text(losses= 1+ losses + "Losses:");
+        $("#losses").text(losses);
         losses = parseInt(losses);
+        reset();
 
     }
 
@@ -98,7 +107,7 @@ if (currentScore === targetNumber){
  });
 
     
-    // reset();
+    
 
 
 
