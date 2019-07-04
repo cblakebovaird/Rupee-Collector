@@ -23,7 +23,6 @@ redVal = Math.floor(Math.random() * 11)+1;
 blueVal = Math.floor(Math.random() * 11)+1;
 purpVal = Math.floor(Math.random() * 11)+1;
 currentScore = 0;
-
 // DOM Manipulation
 $("#target-score").text(targetNumber);
 $("#current-score").text(currentScore);
@@ -32,9 +31,14 @@ $("#wins").text("Wins: " + wins);
 ;}
 
 $(document).ready(function () {
+
+// Displaying scores
+$("#target-score").text(targetNumber);
+$("#current-score").text(currentScore);
+
 // Creating click events
 $("#green").on("click", function(){
-    currentScore + greenVal;
+    currentScore += greenVal;
     var rupeeValue = ($(this).attr("data-rupeevalue"));
     rupeeValue = parseInt(rupeeValue);
     console.log(currentScore);
@@ -58,7 +62,6 @@ $("#green").on("click", function(){
  });   
 
  $("#purple").on("click", function(){
-
     currentScore += purpleVal;
     var rupeeValue = ($(this).attr("data-rupeevalue"));
     rupeeValue = parseInt(rupeeValue);
@@ -72,6 +75,7 @@ $("#green").on("click", function(){
 
 if (currentScore == targetNumber){
         alert("Congratulations! You're a Winner!");
+        console.log("You Won!");
         wins ++;
         $("#wins").text(wins);
         wins = parseInt(wins);
@@ -80,22 +84,12 @@ if (currentScore == targetNumber){
 
     else if (currentScore > targetNumber) {
         alert("You lose! Try again!");
+        console.log("You Lost!");
         losses ++;
         $("#losses").text(losses);
         losses = parseInt(losses);
         reset();
-
     }
-
-
-
  });
-
-    
-    
-
-
-
-
 });
 
