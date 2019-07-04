@@ -15,9 +15,6 @@ var purpleVal = Math.floor(Math.random() * 11)+1;
 var wins = 0;
 var losses = 0;
 
-// Diplays the players current total score
-var currentTotal = 0;
-
 // creating a reset function
 function reset(){
 targetNumber = Math.floor(Math.random() * 101)+19;    
@@ -26,49 +23,38 @@ redVal = Math.floor(Math.random() * 11)+1;
 blueVal = Math.floor(Math.random() * 11)+1;
 purpVal = Math.floor(Math.random() * 11)+1;
 currentScore = 0;
+
+// DOM Manipulation
 $("#target-score").text(targetNumber);
 $("#current-score").text(currentScore);
 $("#losses").text("Losses: " + losses);
 $("#wins").text("Wins: " + wins);
-
-
 ;}
 
 $(document).ready(function () {
-
-// displaying scores
-$("#target-score").text(targetNumber);
-$("#current-score").text(currentScore);
-
 // Creating click events
 $("#green").on("click", function(){
-console.log("currentScore" + typeof currentScore);
-console.log("green val" + typeof greenVal);
-    currentScore += greenVal;
+    currentScore + greenVal;
     var rupeeValue = ($(this).attr("data-rupeevalue"));
     rupeeValue = parseInt(rupeeValue);
     console.log(currentScore);
     $("#current-score").text(currentScore);
-
  });   
- $("#red").on("click", function(){
 
+ $("#red").on("click", function(){
     currentScore += redVal;
     var rupeeValue = ($(this).attr("data-rupeevalue"));
     rupeeValue = parseInt(rupeeValue);
     console.log(currentScore);
     $("#current-score").text(currentScore);
-
  });   
 
  $("#blue").on("click", function(){
-
     currentScore += blueVal;
     var rupeeValue = ($(this).attr("data-rupeevalue"));
     rupeeValue = parseInt(rupeeValue);
     console.log(currentScore);
     $("#current-score").text(currentScore);
-
  });   
 
  $("#purple").on("click", function(){
@@ -78,7 +64,6 @@ console.log("green val" + typeof greenVal);
     rupeeValue = parseInt(rupeeValue);
     console.log(currentScore);
     $("#current-score").text(currentScore);
-
  });   
 
 
