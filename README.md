@@ -1,4 +1,4 @@
-# unit-4-game
+# Rupee Collector
 
 This is a Zelda Themed game in which the user clicks on images of different "Rupees" in attempt to reach a computer generated random number in order to win the game. 
 
